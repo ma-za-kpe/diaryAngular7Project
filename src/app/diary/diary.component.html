@@ -5,7 +5,7 @@
 
 <ul>
   <div *ngFor=' let diary of diarys;let i = index'>
-    <li>{{diary.name}}</li>
+    <li appHighlight>{{diary.name}}</li>
     <app-delete (isComplete)='deleteDiary($event,i)'>
     </app-delete>
   </div>
