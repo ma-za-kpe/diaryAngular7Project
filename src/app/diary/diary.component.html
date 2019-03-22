@@ -1,11 +1,13 @@
 <h1>My Diary Items</h1>
 <hr>
-
-
-
+<div class="container">
+  <div class="row">
+    <app-add (addGoal)="addNewGoal($event)"></app-add>
+  </div>
+</div>
 <ul>
   <div *ngFor=' let diary of diarys;let i = index'>
-    <li appHighlight>{{diary.name}}</li>
+    <li appHighlight>{{diary.name}} due on {{diary.completeDate|date}}</li>
     <app-delete (isComplete)='deleteDiary($event,i)'>
     </app-delete>
   </div>

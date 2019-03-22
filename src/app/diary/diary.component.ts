@@ -8,9 +8,9 @@ import { Diary } from "../diary";
 })
 export class DiaryComponent implements OnInit {
   diarys = [
-    new Diary(1, "Tweeting today"),
-    new Diary(2, "Buy Cookies"),
-    new Diary(3, "Get new Phone Case")
+    new Diary(1, "Tweeting today", new Date(2018, 3, 14)),
+    new Diary(2, "Buy Cookies", new Date(2018, 3, 14)),
+    new Diary(3, "Get new Phone Case", new Date(2018, 3, 14))
   ];
 
   constructor() {}
@@ -21,5 +21,12 @@ export class DiaryComponent implements OnInit {
     if (isComplete) {
       this.diarys.splice(index, 1);
     }
+  }
+
+  addNewGoal(diary) {
+    let goalLength = this.diarys.length;
+    diary.id = goalLength + 1;
+    diary.completeDate = new Date(diary.completeDate);
+    this.diarys.push(diary);
   }
 }
