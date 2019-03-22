@@ -8,7 +8,7 @@ import { Diary } from "../diary";
 })
 export class DiaryComponent implements OnInit {
   diarys = [
-    new Diary(1, "Watch Finding Nemo"),
+    new Diary(1, "Tweeting today"),
     new Diary(2, "Buy Cookies"),
     new Diary(3, "Get new Phone Case")
   ];
@@ -16,4 +16,10 @@ export class DiaryComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  deleteDiary(isComplete, index) {
+    if (isComplete) {
+      this.diarys.splice(index, 1);
+    }
+  }
 }
